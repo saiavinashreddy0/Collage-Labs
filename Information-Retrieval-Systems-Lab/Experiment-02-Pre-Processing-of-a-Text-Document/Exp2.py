@@ -1,0 +1,46 @@
+#24BQ1A42W4
+#SOLLAPUR SAI AVINASH REDDY
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+doc1 = "Machine learning is a branch of artificial intelligence."
+doc2 = "Artificial intelligence includes machine learning and deep learning."
+doc3 = "Deep learning is a subset of machine learning."
+doc4 = "Python is widely used for machine learning."
+doc5 = "Data science uses Python and machine learning."
+doc6 = "Football is a popular outdoor sport."
+doc7 = "Cricket is another famous outdoor game."
+doc8 = "The weather is sunny and pleasant today."
+doc9 = "Machine learning models require training data."
+doc10 = "Artificial intelligence is transforming many industries."
+
+
+documents = [
+    doc1, doc2, doc3, doc4, doc5,
+    doc6, doc7, doc8, doc9, doc10
+]
+
+
+vectorizer = TfidfVectorizer(stop_words='english')
+tfidf_matrix = vectorizer.fit_transform(documents)
+
+
+from sklearn.metrics.pairwise import cosine_similarity
+
+similarity = cosine_similarity(tfidf_matrix)
+
+print("Cosine Similarity Matrix:\n")
+print(similarity)
+
+
+
+import pandas as pd
+
+doc_names = [f"Doc{i}" for i in range(1, 11)]
+
+similarity_df = pd.DataFrame(
+    similarity,
+    index=doc_names,
+    columns=doc_names
+)
+
+print(similarity_df.round(4))
