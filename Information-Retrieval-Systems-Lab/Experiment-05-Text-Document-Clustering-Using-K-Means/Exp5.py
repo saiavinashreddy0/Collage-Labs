@@ -202,7 +202,7 @@ plt.ylabel('PCA Component 2')
 # defined. It is preserved verbatim below (per source-code fidelity) rather
 # than silently corrected — replace K with k to make this line runnable.
 plt.legend(handles=scatter.legend_elements()[0],
-           labels=[f'Cluster {i}' for i in range(K)],
+           labels=[f'Cluster {i}' for i in range(k)],
            title='Cluster')
 plt.show()
 
