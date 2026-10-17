@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(code --list-extensions)",
+      "Read(//Users/saiavinashreddy/.vscode/extensions/**)"
+    ]
+  }
+}
